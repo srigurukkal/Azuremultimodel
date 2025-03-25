@@ -1,0 +1,28 @@
+/* File: src/styles/LeaderboardPage.css */
+.leaderboard-page {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.top-users {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.top-user {
+    text-align: center;
+    background-color: #f1f8e9;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+}
+
+.leaderboard-table {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    overflow: hidden;
+}

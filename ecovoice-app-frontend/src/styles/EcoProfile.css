@@ -1,0 +1,50 @@
+
+/* File: src/styles/EcoProfile.css */
+.eco-profile {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.profile-level .level-badge {
+    background-color: #2ecc71;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.achievement-section .achievements {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.achievement {
+    background-color: #f1f8e9;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+    .achievement.unlocked {
+        border: 2px solid #2ecc71;
+    }
+
+    .achievement.locked {
+        opacity: 0.5;
+    }

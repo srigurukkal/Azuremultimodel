@@ -1,0 +1,52 @@
+
+/* File: src/styles/Login.css */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f7f6;
+}
+
+.login-container {
+    display: flex;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.login-content {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.features-preview {
+    flex: 1;
+    background-color: #f1f8e9;
+    padding: 50px;
+}
+
+.feature-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.feature-card {
+    width: 30%;
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: #2ecc71;
+    margin-bottom: 15px;
+}
