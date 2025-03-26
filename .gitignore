@@ -1,0 +1,6 @@
+.vs/
+.vscode/
+**/.vs/
+*.vsidx
+*.suo
+*.user
