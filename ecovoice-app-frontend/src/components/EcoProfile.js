@@ -1,4 +1,4 @@
-﻿// File: src/components/EcoProfile.js
+// File: src/components/EcoProfile.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaLeaf, FaTrophy, FaChartLine, FaCalendarAlt } from 'react-icons/fa';

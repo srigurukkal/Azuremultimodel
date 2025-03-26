@@ -66,9 +66,11 @@ export const getLeaderboard = async () => {
   }
 };
 
-export default {
+const apiService = {
   getUserProfile,
   analyzeUserInput,
   uploadFile,
   getLeaderboard
 };
+
+export default apiService;

@@ -67,5 +67,6 @@ class AIContentSafety {
     return violations.map(v => v.split(' ')[0]);
   }
 }
+const contentSafetyService = new AIContentSafety();
 
-export default new AIContentSafety();
+export default contentSafetyService;

@@ -1,6 +1,5 @@
 // File: src/components/LeaderboardPage.js
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { FaLeaf, FaTrophy, FaMedal } from 'react-icons/fa';
 import '../styles/LeaderboardPage.css';
 

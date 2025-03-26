@@ -1,4 +1,4 @@
-﻿// File: src/components/Footer.js
+// File: src/components/Footer.js
 import React from 'react';
 import { FaLeaf, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import '../styles/Footer.css';

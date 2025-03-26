@@ -1,4 +1,4 @@
-﻿
+
 // File: src/components/Login.js
 import React from 'react';
 import { useMsal } from '@azure/msal-react';

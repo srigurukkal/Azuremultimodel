@@ -4,7 +4,7 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useSafety } from '../contexts/safetyContext'; // Changed to lowercaseimport { useSearchParams, useNavigate } from 'react-router-dom';
 import { useMsal } from '@azure/msal-react';
 import axios from 'axios';
-import { FaTimes,FaKeyboard, FaCamera, FaMicrophone, FaCheck, FaSpinner, FaLeaf,FaExclamationTriangle } from 'react-icons/fa';
+import { FaKeyboard, FaCamera, FaMicrophone, FaCheck, FaSpinner, FaLeaf,FaExclamationTriangle } from 'react-icons/fa';
 import '../styles/InputPage.css';
 import ReactMarkdown from 'react-markdown';
 
@@ -231,7 +231,7 @@ const InputPage = () => {
                 fileUrl = uploadResponse.data.url;
             }
             
-            if(inputType=='text')
+            if(inputType==='text')
             {
                  // Content Safety Check
                 const isSafe = await checkContent({ text: textInput });

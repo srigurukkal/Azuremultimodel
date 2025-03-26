@@ -46,7 +46,9 @@ export const getAuthToken = async (instance) => {
   }
 };
 
-export default {
+const authService = {
   getCurrentUser,
   getAuthToken
 };
+
+export default authService;

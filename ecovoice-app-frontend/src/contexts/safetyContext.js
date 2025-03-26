@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import AIContentSafety from '../services/AIContentSafety';
+import contentSafetyService from '../services/AIContentSafety';
 
 const SafetyContext = createContext();
 
@@ -12,7 +12,7 @@ export function SafetyProvider({ children }) {
     setLastError(null);
 
     try {
-      const result = await AIContentSafety.analyzeSafetyRisks(content);
+      const result = await contentSafetyService.analyzeSafetyRisks(content);
       return result.isSafe;
     } catch (error) {
       setLastError(error);
