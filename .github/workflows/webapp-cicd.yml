@@ -1,0 +1,38 @@
+name: Azure Static Web App CD
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'ecovoice-app-frontend/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'ecovoice-app-frontend/**'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Build React App
+      run: |
+        cd ecovoice-app-frontend
+        npm install
+        npm run build
+        
+    - name: Deploy to Azure Static Web Apps
+      uses: Azure/static-web-apps-deploy@v1
+      with:
+        azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        action: "upload"
+        app_location: "ecovoice-app-frontend"
+        output_location: "build"
