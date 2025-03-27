@@ -21,13 +21,14 @@ jobs:
     - name: Build
       run: |
         cd ecovoice-app-backend
-        dotnet build --configuration Release
+        dotnet clean
+        dotnet restore
+        dotnet build -c Release
         dotnet publish -c Release -o ./publish
         
     - name: Deploy to Azure Function App
       uses: Azure/functions-action@v1
       with:
-        app-name: 'sri-ecovoice-funcapp
-'
+        app-name: 'sri-ecovoice-funcapp'
         package: './ecovoice-app-backend/publish'
         publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
