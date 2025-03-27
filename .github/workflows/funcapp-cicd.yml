@@ -25,8 +25,11 @@ jobs:
     - name: Build
       run: |
         cd ecovoice-app-backend
-        dotnet build --configuration Release
-        dotnet publish -c Release -o ./publish
+        dotnet clean
+        dotnet restore --force
+        dotnet build --configuration Release --no-restore /p:GenerateWorkerExtensions=false
+        dotnet publish -c Release -o ./publish --no-build
+
         
     - name: Deploy to Azure Function App
       uses: Azure/functions-action@v1
