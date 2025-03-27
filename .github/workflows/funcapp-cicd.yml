@@ -6,7 +6,7 @@ on:
     paths:
       - 'ecovoice-app-backend/**'
 
-jobs:
+jobs:  
   build-and-deploy:
     runs-on: ubuntu-latest
     
@@ -17,14 +17,14 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '9.0.x'
-        
+    - name: Prepare Build
+      run: |
+          cd ecovoice-app-backend
+          rm -rf obj bin       
     - name: Build
       run: |
         cd ecovoice-app-backend
-        dotnet clean
-        dotnet restore
-        dotnet build -c Release
-        dotnet publish -c Release -o ./publish
+        dotnet publish -c Release
         
     - name: Deploy to Azure Function App
       uses: Azure/functions-action@v1
