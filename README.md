@@ -1,15 +1,19 @@
 # Azuremultimodel
 Azure multi model(text,voice,image) with Active directory
 
+**Free developer resources:**
+
 Azure free credit available.
 GitHub copilot was extremely useful for beginners since from coding to deployment.
 
 **Runtime of these apps at the time of my development :**
-Node 22.12.0
+Node 22.12.0,
+
 .NET 9.0
 
 
 **Azure resources needed:**
+
 Azure AI services – text, speech and image analysis
 Azure Open AI services – chat completion  to get personalized inputs
 Azure content safety service
@@ -22,7 +26,7 @@ Azure storage – to store image and voice blob
 **Make sure all the resources created beforehand.**
 
 Local testing is possible by pointing your local react app to local function app.
-Below environment variables can be retrieved from Azure portal from the corresponding resource setting pages.
+Below environment variables can be retrieved from Azure portal as they created from the corresponding resource setting pages.
 
 **Environment variables needed-frontend-reactapp:**
         private static readonly string CosmosEndpoint = Environment.GetEnvironmentVariable("CosmosDbEndpoint");
@@ -58,8 +62,6 @@ Below environment variables can be retrieved from Azure portal from the correspo
         private static readonly Container UserContainer = CosmosClient.GetDatabase("eco-voice-db").GetContainer("users");
         private static readonly Container ActivitiesContainer = CosmosClient.GetDatabase("eco-voice-db").GetContainer("activities");
 
-
-Application diagrams:
 
 ![image](https://github.com/user-attachments/assets/48c7ed01-9457-433b-8af3-07df449f08e1)
 
