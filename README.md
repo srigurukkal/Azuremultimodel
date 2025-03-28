@@ -106,8 +106,9 @@ Azure AD integration – to manage user identities
 Azure storage – to store image and voice blob
 
 
-![image](https://github.com/user-attachments/assets/a4e1daee-da4e-4bed-a814-491a1ef942cb)
+**Azure resource types:**
 
+![image](https://github.com/user-attachments/assets/827014c3-eca9-4efb-8cd7-3e0f3beece78)
 
 
 
