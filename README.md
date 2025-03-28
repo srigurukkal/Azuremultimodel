@@ -1,5 +1,13 @@
-# Azuremultimodel
-Azure multi model(text,voice,image) with Active directory
+**What is this app about?**
+
+EcoVoice is an interactive, multi-modal web app that acts as a personal sustainability coach. It uses Azure AI to analyze your environmental impact through text (daily activities you input), voice (spoken reflections), and images (photos of items like groceries or waste), then provides tailored, actionable eco-friendly advice in real time. Think of it as a green lifestyle assistant with a playful, gamified twist—users earn "Eco Points" for sustainable choices, tracked via Azure services.
+It is built on Azure AI services 
+
+**Technology stack:**
+
+React
+.NET Function apps
+Azure
 
 **Free developer resources:**
 
@@ -22,6 +30,18 @@ Azure function app
 Azure Cosmos DB
 Azure AD integration – to manage user identities
 Azure storage – to store image and voice blob
+
+
+**Chat completion request:**
+
+                // Create a list of chat messages
+                var messages = new List<ChatMessage>
+                {
+                    new SystemChatMessage("You are an eco-friendly assistant that analyzes user activities , provides specific impact and specific sustainability advice. Also rate how sustainable the activity is on a scale of -10 to +15, where -10 is very harmful to the environment and +15 is very beneficial.Give me response in Json with fields impact, advice and ecopoints."),
+                    new UserChatMessage(text)
+                };
+
+
 
 **Make sure all the resources created beforehand.**
 
