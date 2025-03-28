@@ -6,15 +6,19 @@ It is built on Azure AI services
 **Technology stack:**
 
 React
+
 .NET Function apps
+
 Azure
 
 **Free developer resources:**
 
 Azure free credit available.
+
 GitHub copilot was extremely useful for beginners since from coding to deployment.
 
 **Runtime of these apps at the time of my development :**
+
 Node 22.12.0,
 
 .NET 9.0
