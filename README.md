@@ -87,7 +87,27 @@ Below environment variables can be retrieved from Azure portal as they created f
         private static readonly Container ActivitiesContainer = CosmosClient.GetDatabase("eco-voice-db").GetContainer("activities");
 
 
-![image](https://github.com/user-attachments/assets/48c7ed01-9457-433b-8af3-07df449f08e1)
+**Tehnical backbone:**
+
+Azure AI services – text, speech and image analysis 
+
+Azure Open AI services – chat completion  to get personalized inputs
+
+Azure content safety service
+
+Azure static web apps 
+
+Azure function app
+
+Azure Cosmos DB
+
+Azure AD integration – to manage user identities
+
+Azure storage – to store image and voice blob
+
+
+![image](https://github.com/user-attachments/assets/a4e1daee-da4e-4bed-a814-491a1ef942cb)
+
 
 
 
