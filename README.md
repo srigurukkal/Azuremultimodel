@@ -102,7 +102,7 @@ Azure AI services – text, speech and image analysis
 
 Azure Open AI services – chat completion  to get personalized inputs
 
-Azure content safety service
+Azure content safety service(One of Microsoft Azure’s Responsible AI tools)
 
 Azure static web apps 
 
@@ -124,3 +124,8 @@ Azure storage – to store image and voice blob
 ![image](https://github.com/user-attachments/assets/8b2f26ae-b4bb-48fd-a9f8-9e1c012143cc)
 
 ![image](https://github.com/user-attachments/assets/e35a338f-b3fb-4dfa-b9be-f1f01f9ea9d3)
+
+**Azure content safety experience:**
+
+![image](https://github.com/user-attachments/assets/6ed36165-2c91-4a26-8c4c-9c132d670a89)
+
