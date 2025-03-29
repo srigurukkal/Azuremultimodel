@@ -3,6 +3,8 @@
 EcoVoice is an interactive, multi-modal web app that acts as a personal sustainability coach. It uses Azure AI to analyze your environmental impact through text (daily activities you input), voice (spoken reflections), and images (photos of items like groceries or waste), then provides tailored, actionable eco-friendly advice in real time. Think of it as a green lifestyle assistant with a playful, gamified twist—users earn "Eco Points" for sustainable choices, tracked via Azure services.
 It is built on Azure AI services 
 
+**Youtube demo at:** https://www.youtube.com/watch?v=tkSTtQM2XGE
+
 **Technology stack:**
 
 React
@@ -27,12 +29,19 @@ Node 22.12.0,
 **Azure resources needed:**
 
 Azure AI services – text, speech and image analysis
+
 Azure Open AI services – chat completion  to get personalized inputs
+
 Azure content safety service
+
 Azure static web apps 
+
 Azure function app
+
 Azure Cosmos DB
+
 Azure AD integration – to manage user identities
+
 Azure storage – to store image and voice blob
 
 
