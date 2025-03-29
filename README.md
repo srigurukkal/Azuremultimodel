@@ -19,6 +19,8 @@ Azure free credit available.
 
 GitHub copilot was extremely useful for beginners since from coding to deployment.
 
+So take the advantage of free trial of Azure and GitHub Copilot.
+
 **Runtime of these apps at the time of my development :**
 
 Node 22.12.0,
