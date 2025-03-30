@@ -62,7 +62,7 @@ Watch our YouTube demo: [https://www.youtube.com/watch?v=tkSTtQM2XGE](https://ww
 1. Fork this repository
 2. Create an Azure account
 3. Create the required Azure resources (listed below)
-4. Add all the secrets from Azure portal to GitHub secrets:
+4. Get the values for the below secrets from Azure portal and update it into GitHub secrets:
 
    ![GitHub Secrets](https://github.com/user-attachments/assets/6ab227b4-df48-428e-8719-1de436a43b95)
 
