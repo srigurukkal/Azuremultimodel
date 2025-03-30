@@ -31,6 +31,12 @@ Watch our YouTube demo: [https://www.youtube.com/watch?v=tkSTtQM2XGE](https://ww
 - Node: 22.12.0
 - .NET: 9.0
 
+
+## End-to-end detailed flow
+
+![e2e-detailed](https://github.com/user-attachments/assets/49620038-0103-41d2-b155-0cdf60ec26f2)
+
+
 ## Setup Instructions
 
 ### Local Development
