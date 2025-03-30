@@ -62,7 +62,7 @@ Watch our YouTube demo: [https://www.youtube.com/watch?v=tkSTtQM2XGE](https://ww
 1. Fork this repository
 2. Create an Azure account
 3. Create the required Azure resources (listed below)
-4. Get the values for the below secrets from Azure portal and update it into GitHub secrets:
+4. For front end: Get the values for the below secrets from Azure portal and update it into GitHub secrets:
 
    ![GitHub Secrets](https://github.com/user-attachments/assets/6ab227b4-df48-428e-8719-1de436a43b95)
 
@@ -76,6 +76,9 @@ Watch our YouTube demo: [https://www.youtube.com/watch?v=tkSTtQM2XGE](https://ww
      REACT_APP_CONTENT_SAFETY_ENDPOINT: ${{ secrets.REACT_APP_CONTENT_SAFETY_ENDPOINT }}
      REACT_APP_CONTENT_SAFETY_KEY: ${{ secrets.REACT_APP_CONTENT_SAFETY_KEY }}
    ```
+   5. For backend: Update function app environment variables into Azure portal as below,
+      ![image](https://github.com/user-attachments/assets/210df688-37c6-4d36-9151-6958fad27425)
+
 
 ## Required Azure Resources
 
