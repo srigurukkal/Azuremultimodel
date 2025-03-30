@@ -14,6 +14,10 @@ The app provides tailored, actionable eco-friendly advice in real time. Think of
 
 Watch our YouTube demo: [https://www.youtube.com/watch?v=tkSTtQM2XGE](https://www.youtube.com/watch?v=tkSTtQM2XGE)
 
+## Try it out
+[gentle-pond-04f47f40f.6.azurestaticapps.net
+](https://gentle-pond-04f47f40f.6.azurestaticapps.net/)
+
 ## Technology Stack
 
 - React
