@@ -1,0 +1,22 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "CosmosDbEndpoint": "CosmosDbEndpoint from Azure portal",
+    "CosmosDbKey": "CosmosDbKey from Azure portal",
+    "CognitiveServicesKey": "CognitiveServicesKey from Azure portal",
+    "CognitiveServicesEndpoint": "CognitiveServicesEndpoint from Azure portal",
+    "AzureOpenAIKey": "SpeechServiceKey from Azure portal",
+    "AzureOpenAIEndpoint": "SpeechServiceKey from Azure portal",
+    "SpeechServiceKey": "SpeechServiceKey from Azure portal",
+    "SpeechServiceRegion": "SpeechServiceRegion from Azure portal",
+    "StorageAccountKey": "StorageConnectionString from Azure portal",
+    "StorageConnectionString": "StorageConnectionString from Azure portal"
+  },
+  "Host": {
+    "LocalHttpPort": 7071,
+    "CORS": "http://localhost:3000",
+    "CORSCredentials": true
+  }
+}
