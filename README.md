@@ -37,6 +37,57 @@ Watch our YouTube demo: [https://www.youtube.com/watch?v=tkSTtQM2XGE](https://ww
 ![e2e-detailed](https://github.com/user-attachments/assets/49620038-0103-41d2-b155-0cdf60ec26f2)
 
 
+### Key Components
+
+#### Frontend
+- **React App** hosted on **Azure Static Web App**
+- Integrates with **Azure AD** for user authentication
+- Uses **Azure Content Safety** for content moderation
+
+#### Backend
+- **.NET Function App** with three main API endpoints:
+  - `AnalyzeUserInput`: Processes text, image, and voice inputs
+  - `GetUserProfile`: Retrieves user profile information
+  - `UploadFile`: Handles file uploads to blob storage
+- Independently scalable from the frontend
+
+#### Data Flow
+1. **Text Analysis Flow**:
+   - User enters text in the React app
+   - Frontend sends text directly to `AnalyzeUserInput` API
+   - Backend processes text through Azure Cognitive Services and OpenAI
+   - Results are stored in Cosmos DB and returned to the user
+
+2. **Image Analysis Flow**:
+   - User uploads an image in the React app
+   - Frontend sends image to `UploadFile` API
+   - Backend stores image in Azure Blob Storage (Images container)
+   - Frontend requests analysis via `AnalyzeUserInput` with the blob reference
+   - Backend processes image through Azure Cognitive Services and OpenAI
+   - Results and blob reference are stored in Cosmos DB and returned to the user
+
+3. **Voice Analysis Flow**:
+   - User records audio in the React app
+   - Frontend sends recording to `UploadFile` API
+   - Backend stores audio in Azure Blob Storage (Audio container)
+   - Frontend requests analysis via `AnalyzeUserInput` with the blob reference
+   - Backend processes audio through Azure Cognitive Services and OpenAI
+   - Results and blob reference are stored in Cosmos DB and returned to the user
+
+#### Data Storage
+- **Azure Cosmos DB** stores:
+  - User profiles in the "users" container
+  - Activity records in the "activities" container (including blob references)
+- **Azure Blob Storage** stores:
+  - Images in the "images" container
+  - Audio recordings in the "audio" container
+
+#### Security
+- All API calls are secured with Function Keys
+- User authentication is handled by Azure AD
+- Content moderation is performed by Azure Content Safety
+
+  
 ## Setup Instructions
 
 ### Local Development
