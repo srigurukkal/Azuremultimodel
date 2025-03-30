@@ -1,133 +1,157 @@
-**What is this app about?**
+# EcoVoice: Personal Sustainability Coach
 
-EcoVoice is an interactive, multi-modal web app that acts as a personal sustainability coach. It uses Azure AI to analyze your environmental impact through text (daily activities you input), voice (spoken reflections), and images (photos of items like groceries or waste), then provides tailored, actionable eco-friendly advice in real time. Think of it as a green lifestyle assistant with a playful, gamified twist—users earn "Eco Points" for sustainable choices, tracked via Azure services.
-It is built on Azure AI services 
+## Overview
 
-**Youtube demo at:** https://www.youtube.com/watch?v=tkSTtQM2XGE
+EcoVoice is an interactive, multi-modal web app that acts as a personal sustainability coach. It uses Azure AI to analyze your environmental impact through:
 
-**Technology stack:**
+- **Text**: Daily activities you input
+- **Voice**: Spoken reflections
+- **Images**: Photos of items like groceries or waste
 
-React
+The app provides tailored, actionable eco-friendly advice in real time. Think of it as a green lifestyle assistant with a gamified twist—users earn "Eco Points" for sustainable choices, tracked via Azure services.
 
-.NET Function apps
+## Demo
 
-Azure
+Watch our YouTube demo: [https://www.youtube.com/watch?v=tkSTtQM2XGE](https://www.youtube.com/watch?v=tkSTtQM2XGE)
 
-**Free developer resources:**
+## Technology Stack
 
-Azure free credit available.
+- React
+- .NET Function Apps
+- Azure Services
 
-GitHub copilot was extremely useful for beginners since from coding to deployment.
+## Free Developer Resources
 
-So take the advantage of free trial of Azure and GitHub Copilot.
+- Azure free credit available
+- GitHub Copilot (extremely useful for beginners from coding to deployment)
+- Take advantage of free trials for both Azure and GitHub Copilot
 
-**Runtime of these apps at the time of my development :**
+## Runtime Versions
 
-Node 22.12.0,
+- Node: 22.12.0
+- .NET: 9.0
 
-.NET 9.0
+## Setup Instructions
 
+### Local Development
 
-**Azure resources needed:**
+1. Update `.env.development` with your values in the frontend
+2. Update `local.settings.json` with your values in the backend
+   - You may need to generate a function key locally:
+   ```bash
+   # Install Azure Functions Core Tools
+   npm install -g azure-functions-core-tools@4
+   
+   # Start your Azure Function locally
+   func start
+   
+   # Generate a function-specific key
+   func keys set -n YourKeyName --function YourFunctionName
+   
+   # Or generate a host key (works across all functions)
+   func keys set -n YourKeyName --host
+   
+   # View existing keys
+   func keys list
+   # or for a specific function
+   func keys list --function YourFunctionName
+   ```
 
-Azure AI services – text, speech and image analysis
+### Production Deployment
 
-Azure Open AI services – chat completion  to get personalized inputs
+1. Fork this repository
+2. Create an Azure account
+3. Create the required Azure resources (listed below)
+4. Add all the secrets from Azure portal to GitHub secrets:
 
-Azure content safety service
+   ![GitHub Secrets](https://github.com/user-attachments/assets/6ab227b4-df48-428e-8719-1de436a43b95)
 
-Azure static web apps 
+   These will be passed to ReactApp through GitHub workflow:
+   ```yaml
+   env:
+     REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+     REACT_APP_FUNCTION_KEY: ${{ secrets.REACT_APP_FUNCTION_KEY }}
+     REACT_APP_AZURE_AD_CLIENT_ID: ${{ secrets.REACT_APP_AZURE_AD_CLIENT_ID }}
+     REACT_APP_AZURE_AD_TENANT_ID: ${{ secrets.REACT_APP_AZURE_AD_TENANT_ID }}
+     REACT_APP_CONTENT_SAFETY_ENDPOINT: ${{ secrets.REACT_APP_CONTENT_SAFETY_ENDPOINT }}
+     REACT_APP_CONTENT_SAFETY_KEY: ${{ secrets.REACT_APP_CONTENT_SAFETY_KEY }}
+   ```
 
-Azure function app
+## Required Azure Resources
 
-Azure Cosmos DB
+- Azure AI services – text, speech and image analysis
+- Azure OpenAI services – chat completion to get personalized inputs
+- Azure Content Safety service
+- Azure Static Web Apps
+- Azure Function App
+- Azure Cosmos DB
+- Azure AD integration – to manage user identities
+- Azure Storage – to store image and voice blobs
 
-Azure AD integration – to manage user identities
+## Implementation Details
 
-Azure storage – to store image and voice blob
+### OpenAI Chat Completion
 
+```csharp
+// Create a list of chat messages
+var messages = new List<ChatMessage>
+{
+    new SystemChatMessage("You are an eco-friendly assistant that analyzes user activities, provides specific impact and specific sustainability advice. Also rate how sustainable the activity is on a scale of -10 to +15, where -10 is very harmful to the environment and +15 is very beneficial. Give me response in Json with fields impact, advice and ecopoints."),
+    new UserChatMessage(text)
+};
+```
 
-**Chat completion request:**
+### Local Testing
 
-                // Create a list of chat messages
-                var messages = new List<ChatMessage>
-                {
-                    new SystemChatMessage("You are an eco-friendly assistant that analyzes user activities , provides specific impact and specific sustainability advice. Also rate how sustainable the activity is on a scale of -10 to +15, where -10 is very harmful to the environment and +15 is very beneficial.Give me response in Json with fields impact, advice and ecopoints."),
-                    new UserChatMessage(text)
-                };
+Local testing is possible by pointing your local React app to the local function app.
+Environment variables can be retrieved from the Azure portal as they are created from the corresponding resource setting pages.
 
+### Function App Environment Variables
 
+```csharp
+private static readonly string CosmosEndpoint = Environment.GetEnvironmentVariable("CosmosDbEndpoint");
+private static readonly string CosmosKey = Environment.GetEnvironmentVariable("CosmosDbKey");
+private static readonly string AzureOpenAIEndpoint = Environment.GetEnvironmentVariable("AzureOpenAIEndpoint");
+private static readonly string AzureOpenAIKey = Environment.GetEnvironmentVariable("AzureOpenAIKey");
+private static readonly string CognitiveServicesKey = Environment.GetEnvironmentVariable("CognitiveServicesKey");
+private static readonly string CognitiveServicesEndpoint = Environment.GetEnvironmentVariable("CognitiveServicesEndpoint");
+private static readonly string SpeechServiceKey = Environment.GetEnvironmentVariable("SpeechServiceKey");
+private static readonly string SpeechServiceRegion = Environment.GetEnvironmentVariable("SpeechServiceRegion");
+private static readonly string StorageConnectionString = Environment.GetEnvironmentVariable("StorageConnectionString");
+private static readonly string StorageAccountKey = Environment.GetEnvironmentVariable("StorageAccountKey");
+```
 
-**Make sure all the resources created beforehand.**
+### CosmosDB Setup
 
-Local testing is possible by pointing your local react app to local function app.
-Below environment variables can be retrieved from Azure portal as they created from the corresponding resource setting pages.
+CosmosDB requires additional setup to match these container names:
 
-**Environment variables needed-frontend-reactapp:**
-        private static readonly string CosmosEndpoint = Environment.GetEnvironmentVariable("CosmosDbEndpoint");
-        private static readonly string CosmosKey = Environment.GetEnvironmentVariable("CosmosDbKey");
-        private static readonly string AzureOpenAIEndpoint = Environment.GetEnvironmentVariable("AzureOpenAIEndpoint");
-        private static readonly string AzureOpenAIKey = Environment.GetEnvironmentVariable("AzureOpenAIKey");
-        private static readonly string CognitiveServicesKey = Environment.GetEnvironmentVariable("CognitiveServicesKey");
-        private static readonly string CognitiveServicesEndpoint = Environment.GetEnvironmentVariable("CognitiveServicesEndpoint");
-        private static readonly string SpeechServiceKey = Environment.GetEnvironmentVariable("SpeechServiceKey");
-        private static readonly string SpeechServiceRegion = Environment.GetEnvironmentVariable("SpeechServiceRegion");
-        private static readonly string StorageConnectionString = Environment.GetEnvironmentVariable("StorageConnectionString");
-        private static readonly string StorageAccountKey = Environment.GetEnvironmentVariable("StorageAccountKey");
+```csharp
+private static readonly CosmosClient CosmosClient = new CosmosClient(CosmosEndpoint, CosmosKey);
+private static readonly Container UserContainer = CosmosClient.GetDatabase("eco-voice-db").GetContainer("users");
+private static readonly Container ActivitiesContainer = CosmosClient.GetDatabase("eco-voice-db").GetContainer("activities");
+```
 
-        private static readonly CosmosClient CosmosClient = new CosmosClient(CosmosEndpoint, CosmosKey);
-        private static readonly Container UserContainer = CosmosClient.GetDatabase("eco-voice-db").GetContainer("users");
-        private static readonly Container ActivitiesContainer = CosmosClient.GetDatabase("eco-voice-db").GetContainer("activities");
+## Technical Architecture
 
-**Environment variables-backend needed -functionapp:**
+### Core Services
 
-        private static readonly string CosmosEndpoint = Environment.GetEnvironmentVariable("CosmosDbEndpoint");
-        private static readonly string CosmosKey = Environment.GetEnvironmentVariable("CosmosDbKey");
-        private static readonly string AzureOpenAIEndpoint = Environment.GetEnvironmentVariable("AzureOpenAIEndpoint");
-        private static readonly string AzureOpenAIKey = Environment.GetEnvironmentVariable("AzureOpenAIKey");
-        private static readonly string CognitiveServicesKey = Environment.GetEnvironmentVariable("CognitiveServicesKey");
-        private static readonly string CognitiveServicesEndpoint = Environment.GetEnvironmentVariable("CognitiveServicesEndpoint");
-        private static readonly string SpeechServiceKey = Environment.GetEnvironmentVariable("SpeechServiceKey");
-        private static readonly string SpeechServiceRegion = Environment.GetEnvironmentVariable("SpeechServiceRegion");
-        private static readonly string StorageConnectionString = Environment.GetEnvironmentVariable("StorageConnectionString");
-        private static readonly string StorageAccountKey = Environment.GetEnvironmentVariable("StorageAccountKey");
+- Azure AI services – text, speech and image analysis
+- Azure OpenAI services – chat completion to get personalized inputs
+- Azure Content Safety service (One of Microsoft Azure's Responsible AI tools)
+- Azure Static Web Apps
+- Azure Function App
+- Azure Cosmos DB
+- Azure AD integration – to manage user identities
+- Azure Storage – to store image and voice blobs
 
-**CosmosDB requires additional setup to match below container names:**
-        private static readonly CosmosClient CosmosClient = new CosmosClient(CosmosEndpoint, CosmosKey);
-        private static readonly Container UserContainer = CosmosClient.GetDatabase("eco-voice-db").GetContainer("users");
-        private static readonly Container ActivitiesContainer = CosmosClient.GetDatabase("eco-voice-db").GetContainer("activities");
+### Azure Resource Types
 
+![Azure Resources](https://github.com/user-attachments/assets/827014c3-eca9-4efb-8cd7-3e0f3beece78)
 
-**Tehnical backbone:**
+![More Azure Resources](https://github.com/user-attachments/assets/8b2f26ae-b4bb-48fd-a9f8-9e1c012143cc)
 
-Azure AI services – text, speech and image analysis 
+![Additional Azure Resources](https://github.com/user-attachments/assets/e35a338f-b3fb-4dfa-b9be-f1f01f9ea9d3)
 
-Azure Open AI services – chat completion  to get personalized inputs
+### Azure Content Safety Experience
 
-Azure content safety service(One of Microsoft Azure’s Responsible AI tools)
-
-Azure static web apps 
-
-Azure function app
-
-Azure Cosmos DB
-
-Azure AD integration – to manage user identities
-
-Azure storage – to store image and voice blob
-
-
-**Azure resource types:**
-
-![image](https://github.com/user-attachments/assets/827014c3-eca9-4efb-8cd7-3e0f3beece78)
-
-
-
-![image](https://github.com/user-attachments/assets/8b2f26ae-b4bb-48fd-a9f8-9e1c012143cc)
-
-![image](https://github.com/user-attachments/assets/e35a338f-b3fb-4dfa-b9be-f1f01f9ea9d3)
-
-**Azure content safety experience:**
-
-![image](https://github.com/user-attachments/assets/6ed36165-2c91-4a26-8c4c-9c132d670a89)
-
+![Content Safety](https://github.com/user-attachments/assets/6ed36165-2c91-4a26-8c4c-9c132d670a89)
