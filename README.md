@@ -76,7 +76,7 @@ Watch our YouTube demo: [https://www.youtube.com/watch?v=tkSTtQM2XGE](https://ww
      REACT_APP_CONTENT_SAFETY_ENDPOINT: ${{ secrets.REACT_APP_CONTENT_SAFETY_ENDPOINT }}
      REACT_APP_CONTENT_SAFETY_KEY: ${{ secrets.REACT_APP_CONTENT_SAFETY_KEY }}
    ```
-   5. For backend: Update function app environment variables into Azure portal as below,
+5. For backend: Update function app environment variables into Azure portal as below,
       ![image](https://github.com/user-attachments/assets/210df688-37c6-4d36-9151-6958fad27425)
 
 
