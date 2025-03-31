@@ -158,6 +158,7 @@ Users concerned about permissions can revoke access anytime through their Micros
 
 
 ![image](https://github.com/user-attachments/assets/354f2bad-1ec9-4248-a861-921b93780126)
+![image](https://github.com/user-attachments/assets/72f25fda-7084-4766-9140-946cd84ee8dc)
 
 
 ## Required Azure Resources
