@@ -154,10 +154,12 @@ This application uses Microsoft Azure AD for secure user authentication. When lo
 - "Unverified" label may appear until our publisher verification is complete
 - We do not access emails, contacts, or other sensitive Microsoft account data
 
-Users concerned about permissions can revoke access anytime through their Microsoft account settings (account.microsoft.com → Privacy → Apps and services).
 
 
 ![image](https://github.com/user-attachments/assets/354f2bad-1ec9-4248-a861-921b93780126)
+
+Users concerned about permissions can revoke access anytime through their Microsoft account settings (account.microsoft.com → Privacy → Apps and services) as below.
+
 ![image](https://github.com/user-attachments/assets/72f25fda-7084-4766-9140-946cd84ee8dc)
 
 
