@@ -17,7 +17,7 @@ import './App.css';
 const msalConfig = {
     auth: {
         clientId: process.env.REACT_APP_AZURE_AD_CLIENT_ID,
-        authority: `https://login.microsoftonline.com/${process.env.REACT_APP_AZURE_AD_TENANT_ID}`,
+        authority: 'https://login.microsoftonline.com/common', // Use 'common' for multi-tenant applications or specify your tenant ID
         redirectUri: window.location.origin,
     },
     cache: {
