@@ -145,6 +145,21 @@ Watch our YouTube demo: [https://www.youtube.com/watch?v=tkSTtQM2XGE](https://ww
       ![image](https://github.com/user-attachments/assets/210df688-37c6-4d36-9151-6958fad27425)
 
 
+## Authentication
+
+This application uses Microsoft Azure AD for secure user authentication. When logging in:
+
+- Users will be prompted to sign in with their Microsoft account
+- The app only requests basic profile information
+- "Unverified" label may appear until our publisher verification is complete
+- We do not access emails, contacts, or other sensitive Microsoft account data
+
+Users concerned about permissions can revoke access anytime through their Microsoft account settings (account.microsoft.com → Privacy → Apps and services).
+
+
+![image](https://github.com/user-attachments/assets/354f2bad-1ec9-4248-a861-921b93780126)
+
+
 ## Required Azure Resources
 
 - Azure AI services – text, speech and image analysis
