@@ -117,7 +117,7 @@ Watch our YouTube demo: [https://www.youtube.com/watch?v=tkSTtQM2XGE](https://ww
    # or for a specific function
    func keys list --function YourFunctionName
    ```
-3. Navigate to frontend app root directory and run npm commands to build and start the app that will launch app at http://localhost:3000/
+3. Navigate to frontend app root directory and run npm commands to build(npm run build) and start(npm start) the app that will launch app at http://localhost:3000/
 4. Start backend app in release or debug mode that will lanuch the app at http://localhost:7071/
 5. You are good to naviate http://localhost:3000/ front end by logging in with your microsoft domain login(either outlook/hotmail)
 
